@@ -38,7 +38,7 @@ export const Exercise = (): JSX.Element => {
               .then((doo: any) => {
                 result[i].exercises[j].sets[m] = {...doo.data(), id: doo.id};
                 console.log("result", result)
-                setExercises(result[0].exercises);
+                setExercises([...result[0].exercises]);
                 const newSets = result[0].exercises.map((ee: any) => {
                   return ee.sets[0];
                 })
@@ -82,7 +82,7 @@ export const Exercise = (): JSX.Element => {
               .then((doo: any) => {
                 result[i].exercises[j].sets[m] = {...doo.data(), id: doo.id};
                 console.log("result", result)
-                setExercises(result[0].exercises);
+                setExercises([...result[0].exercises]);
               })
             })
           })
@@ -104,7 +104,7 @@ export const Exercise = (): JSX.Element => {
             <span style={{
               marginRight: '20px'
             }}>{e.exerciseName}</span>
-            <div style={{ display: 'flex' }}>
+            <div style={{ display: 'flex', marginBottom: '50px' }}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <div>{e.sets[0].load}</div>
                 <input onChange={handleSet(index, 'load', e.sets[0].id)} value={sets[index].load}></input>
